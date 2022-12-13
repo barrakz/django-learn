@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 from viewer import views
-
+from viewer.views import MoviesView, MovieCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.movies, name='index'),
-]
+    path('', views.MoviesView.as_view(), name='index'),
+    path('movie/create', MovieCreateView.as_view(), name='movie_create'),
 
+]
